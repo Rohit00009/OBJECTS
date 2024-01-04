@@ -3,7 +3,6 @@
 //fucntions on objects are called as methods
 //whenever we use keyword "this" in the method inside an object, its gone point to that object itself.
 //this keyword is dynamic , and we can refer to that specific user
-//this keyword isnt useful in case of ---> function inside method
 
 const user = {
   name: "rohit",
@@ -37,7 +36,7 @@ function check() {
   console.log(this);
 }
 check();
-//then we get window of object
+//then we get window's object
 
 //new ex:-
 const thought = {
@@ -98,14 +97,33 @@ const car = {
   countries: ["india", " america", "france", "etc."],
   //method
   greetNew() {
-    console.log(`best car empire in world is ${this.best} !`);
+    console.log(`Best car empire in world is ${this.best} !`);
     //adding a function
-    const getCountries = function () {
+    const getCountries = () => {
+      //instead of function() we use arrow function to solve this problem
       console.log(
-        `Tis brand allocate in different countries like ${auto.theatres.length}`
+        `Tis brand allocate in different countries like ${this.countries.length}`
       );
     };
     getCountries(); //when we invoke simple function like above then a new keyword "this" is created in that execution context.
   },
 };
 car.greetNew();
+//when we create methods use syntax
+// greet(){}
+//when we invoke function in method then it gone a create this keyword by itself
+//its gone a reset and not refers to object
+//to avoid this we use "arrow function" bcz arrow function dont get a new keyword "this"
+
+//tricky function forEach
+const house = {
+  location: "india",
+  Number: [1, 2, 3, 4, 5],
+  greetAnother() {
+    console.log(`Best location for house in world is ${this.location} !`);
+    this.Number.forEach((num) => {
+      console.log(this);
+    });
+  },
+};
+house.greetAnother();
