@@ -51,3 +51,15 @@ console.log(arr);
 const name = "rohit";
 
 console.log(name.toUpperCase);
+
+//RESTART PROTOTYPE
+//prototype  ---> is an object whict is attach to each an every method , array ,function....
+//prototype has different properties
+let array = ["rohit", "chetan"];
+let object = {
+  name: "rohit",
+  city: "pune",
+  getIntro: function () {
+    console.log(this.name + " from " + this.city);
+  },
+};
