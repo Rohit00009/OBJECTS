@@ -46,7 +46,7 @@ arr.push(6);
 console.log(arr);
 
 //when constructor function is built the newly created objects inherit prototype of constructor function.
-//so has own spcific methods
+//so has own specific methods
 
 const name = "rohit";
 
@@ -63,3 +63,25 @@ let object = {
     console.log(this.name + " from " + this.city);
   },
 };
+
+let object2 = {
+  name: "om",
+};
+object2.__proto__ = object; //never do this
+//by above object2.city also gives us pune as city
+//object2.city find city in object2 if it doesnt then it go to proto and goes to chain
+//object2 is sinheriting properties of object.
+//summary point --> if our object doesnt have that property then
+// then it check that property in assigned object as object2.___proto__
+
+//prototype chain -- array
+//arr.__proto__ is Array.prototype
+//arr.__proto__.__proto__ (means the prototype of array prototype is) object prototype.
+//arr.__proto__.__proto__.__proto__ (means the prototype of object prototype is) null.
+
+//prototype chain -- function
+//fun.__proto__ is Function.prototype
+//fun.__proto__.__proto__ is Object.prototype
+//obj.__proto__.__proto__.__proto__ is null
+
+//this means in javascript everything is object in the end.
